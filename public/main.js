@@ -8,7 +8,9 @@ function preload(){
   game.load.spritesheet('balls', '/assets/balls.png', 17, 17);
 }
 
-var map, cursors, background, scenery, plants, dude;
+var map, cursors, background, scenery, plants, ground,
+    dude,
+    money, balls;
 
 function create(){
   game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -21,26 +23,36 @@ function create(){
   background = map.createLayer('Background');
   scenery = map.createLayer('Scenery');
   plants = map.createLayer('Plants');
+  ground = map.createLayer('Ground');
   // only need to call resizeWorld once at end
-  plants.resizeWorld();
+  ground.resizeWorld();
+
+  map.setCollision(18, true, 'Ground');
+
+  money = game.add.group();
+  money.enableBody = true;
+  money.physicsBodyType = Phaser.Physics.ARCADE;
+  // @ params: (1) layer pulling object from, (2) gid of coin, ...
+  map.createFromObjects('Money', 49, 'coin', 0, true, false, money);
+  money.callAll('animations.add', 'animations', 'spin', [0, 1, 2, 3, 4, 5], 10, true);
+  money.callAll('animations.play', 'animations', 'spin');
 
   /* DUDE */
-  dude = game.add.sprite(0, 250, 'dude');
+  dude = game.add.sprite(50, 0, 'dude');
   dude.animations.add('left', [0, 1, 2, 3], 10, true);
   dude.animations.add('right', [5, 6, 7, 8], 10, true);
   game.physics.arcade.enable(dude);
   game.camera.follow(dude);
-  dude.body.gravity.y = 500;
+  dude.body.gravity.y = 300;
   dude.body.bounce.y = 0.3;
   dude.body.collideWorldBounds = true;
-
 
   cursors = game.input.keyboard.createCursorKeys();
 }
 
 
 function update(){
-    // game.physics.arcade.collide(dude, platforms);
+    game.physics.arcade.collide(dude, ground);
 
     if(cursors.left.isDown){
       dude.body.velocity.x = -150;

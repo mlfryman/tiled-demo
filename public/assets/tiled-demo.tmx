@@ -3,6 +3,12 @@
  <tileset firstgid="1" name="Desert" tilewidth="32" tileheight="32" spacing="1" margin="1">
   <image source="tmw_desert_spacing.png" width="265" height="199"/>
  </tileset>
+ <tileset firstgid="49" name="Coin" tilewidth="32" tileheight="32">
+  <image source="coin.png" width="192" height="32"/>
+ </tileset>
+ <tileset firstgid="55" name="Balls" tilewidth="17" tileheight="17">
+  <image source="balls.png" width="102" height="17"/>
+ </tileset>
  <layer name="Background" width="30" height="10">
   <data encoding="base64" compression="zlib">
    eJyTY2BgkBvFo3gUj+IhgAG1jiMp
@@ -18,4 +24,66 @@
    eJxjYBg4oD5A9uoDsQaN7ZAHYgUa24HP7oEGckAshQPr0dhuJRyYXMACxKxEqNPCgckFPEDMS6RaOQrsGUoAADYMA80=
   </data>
  </layer>
+ <layer name="Ground" width="30" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYKIzZgZiTgb6A+5Re+lm70CAkWjvQMWvIBALURkzEJAXBmIA0c4CzA==
+  </data>
+ </layer>
+ <objectgroup name="Money">
+  <object gid="49" x="160" y="96">
+   <properties>
+    <property name="alpha" value="0.5"/>
+   </properties>
+  </object>
+  <object gid="49" x="544" y="224"/>
+  <object gid="49" x="320" y="256"/>
+  <object gid="49" x="352" y="128"/>
+  <object gid="49" x="480" y="128"/>
+  <object gid="49" x="608" y="96"/>
+  <object gid="49" x="704" y="224"/>
+  <object gid="49" x="736" y="64"/>
+  <object gid="49" x="800" y="224"/>
+  <object gid="49" x="96" y="160">
+   <properties>
+    <property name="body.gravity.y" value="300"/>
+   </properties>
+  </object>
+  <object gid="49" x="544" y="224"/>
+  <object gid="49" x="352" y="128"/>
+  <object gid="49" x="352" y="128"/>
+  <object gid="49" x="320" y="256"/>
+  <object gid="49" x="352" y="128">
+   <properties>
+    <property name="body.gravity.y" value="200"/>
+   </properties>
+  </object>
+  <object gid="49" x="32" y="160"/>
+  <object gid="49" x="704" y="224"/>
+  <object gid="49" x="704" y="224"/>
+  <object gid="49" x="608" y="96"/>
+  <object gid="49" x="192" y="192"/>
+  <object gid="49" x="96" y="224"/>
+  <object gid="49" x="192" y="160"/>
+  <object gid="49" x="96" y="96">
+   <properties>
+    <property name="alpha" value="0.5"/>
+   </properties>
+  </object>
+  <object gid="49" x="160" y="96"/>
+  <object gid="49" x="384" y="128"/>
+  <object gid="49" x="160" y="96"/>
+ </objectgroup>
+ <objectgroup name="Balls">
+  <object gid="57" x="704" y="128"/>
+  <object gid="57" x="480" y="224"/>
+  <object gid="55" x="320" y="96"/>
+  <object gid="55" x="448" y="192"/>
+  <object gid="55" x="768" y="128"/>
+  <object gid="55" x="768" y="256"/>
+  <object gid="59" x="416" y="192"/>
+  <object gid="59" x="384" y="64"/>
+  <object gid="59" x="224" y="256"/>
+  <object gid="57" x="544" y="64"/>
+  <object gid="58" x="416" y="256"/>
+ </objectgroup>
 </map>
